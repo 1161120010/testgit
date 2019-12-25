@@ -1,0 +1,25 @@
+server:
+  port: 8888
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mydb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+    password: 123456
+
+  resources:
+    static-locations: classpath:/static/
+  profiles: default
+  freemarker:
+    cache: false
+    content-type: text/html;charset=utf-8
+    expose-request-attributes: true
+    expose-session-attributes: true
+    request-context-attribute: request
+    suffix: .ftl
+
+app:
+  msg: hello,${app.name},${app.number},${app.port}
+  name: ут
+  number: ${random.int}
+  port: ${random.int[1024,9999]}
